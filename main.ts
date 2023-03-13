@@ -65,18 +65,7 @@ namespace TM1650 {
         dbuf = [0, 0, 0, 0]
     }
 
-    /**
-     * show a digital in given position
-     * @param digit is number (0-15) will be shown, eg: 1
-     * @param bit is position, eg: 0
-     */
-    //% blockId="TM650_DIGIT" block="show digit %num|at %bit"
-    //% weight=80 blockGap=8
-    //% num.max=15 num.min=0
-    export function digit(num: number, bit: number) {
-        dbuf[bit % 4] = _SEG[num % 16]
-        dat(bit, _SEG[num % 16])
-    }
+
 
     /**
      * show a number in display
@@ -96,52 +85,10 @@ namespace TM1650 {
         digit(Math.idiv(num, 100) % 10, 1)
     }
 
-    /**
-     * show a number in hex format
-     * @param num is number will be shown, eg: 123
-     */
-    //% blockId="TM650_SHOW_HEX_NUMBER" block="show hex number %num"
-    //% weight=90 blockGap=8
-    export function showHex(num: number) {
-        if (num < 0) {
-            dat(0, 0x40) // '-'
-            num = -num
-        }
-        else
-            digit((num >> 12) % 16, 0)
-        digit(num % 16, 3)
-        digit((num >> 4) % 16, 2)
-        digit((num >> 8) % 16, 1)
-    }
 
-    /**
-     * show Dot Point in given position
-     * @param bit is positiion, eg: 0
-     * @param show is true/false, eg: true
-     */
-    //% blockId="TM650_SHOW_DP" block="show dot point %bit|show %num"
-    //% weight=80 blockGap=8
-    export function showDpAt(bit: number, show: boolean) {
-        if (show) dat(bit, dbuf[bit % 4] | 0x80)
-        else dat(bit, dbuf[bit % 4] & 0x7F)
-    }
 
-    /**
-     * set display intensity
-     * @param dat is intensity of the display, eg: 3
-     */
-    //% blockId="TM650_INTENSITY" block="set intensity %dat"
-    //% weight=70 blockGap=8
-    export function setIntensity(dat: number) {
-        if ((dat < 0) || (dat > 8))
-            return;
-        if (dat == 0)
-            off()
-        else {
-            _intensity = dat
-            cmd((dat << 4) | 0x01)
-        }
-    }
+
+
 
     on();
 }
