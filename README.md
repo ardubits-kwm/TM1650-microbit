@@ -6,7 +6,7 @@ Four Digit Display is a Module with four 7-segment LED, it can show number. It h
 Author: shaoziyang  
 Date:   2018.Mar  
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/icon.png)
+![](https://raw.githubusercontent.com/ardubits-kwm/TM1650-microbit/master/icon.png)
 
 ## Usage
 
@@ -16,7 +16,7 @@ https://github.com/microbit-makecode-packages/TM1650
 
 to search box then search.
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/4-LED.jpg)
+
 
 ## API
 
@@ -35,20 +35,7 @@ show a digit number in given position.
 - **showNumber(num: number)**  
 show a interger number in display.  
 
-- **showHex(num: number)**  
-show a hex number.  
 
-- **showDpAt(bit: number, show: boolean)**  
-show or hide dot piont in give bit  
-bit is dot piont position, [0 - 3]  
-show, True will show DP, other will hide it  
-
-- **setIntensity(dat: number)**  
-set display intensity.  
-
-## Demo
-
-![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/demo.jpg)
 
 ## License  
 
