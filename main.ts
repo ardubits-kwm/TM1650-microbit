@@ -36,8 +36,8 @@ namespace TM1650 {
     /**
      * turn on display
      */
-    //% blockId="TM650_ON" block="turn on display"
-    //% weight=50 blockGap=8
+    //% block="turn on display"
+    //% weight=50 
     export function on() {
         cmd(_intensity * 16 + 1)
     }
@@ -45,8 +45,8 @@ namespace TM1650 {
     /**
      * turn off display
      */
-    //% blockId="TM650_OFF" block="turn off display"
-    //% weight=50 blockGap=8
+    //% block="turn off display"
+    //% weight=50 
     export function off() {
         _intensity = 0
         cmd(0)
@@ -55,8 +55,8 @@ namespace TM1650 {
     /**
      * clear display content
      */
-    //% blockId="TM650_CLEAR" block="clear display"
-    //% weight=40 blockGap=8
+    //% block="clear display"
+    //% weight=40
     export function clear() {
         dat(0, 0)
         dat(1, 0)
@@ -70,8 +70,8 @@ namespace TM1650 {
      * @param digit is number (0-15) will be shown, eg: 1
      * @param bit is position, eg: 0
      */
-    //% blockId="TM650_DIGIT" block="show digit %num|at %bit"
-    //% weight=80 blockGap=8
+    //% block="show digit %num|at %bit"
+    //% weight=80
     //% num.max=15 num.min=0
     export function digit(num: number, bit: number) {
         dbuf[bit % 4] = _SEG[num % 16]
@@ -82,8 +82,8 @@ namespace TM1650 {
      * show a number in display
      * @param num is number will be shown, eg: 100
      */
-    //% blockId="TM650_SHOW_NUMBER" block="show number %num"
-    //% weight=100 blockGap=8
+    //% block="show number %num"
+    //% weight=100 
     export function showNumber(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
