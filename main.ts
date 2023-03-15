@@ -96,9 +96,4 @@ namespace TM1650 {
         digit(Math.idiv(num, 100) % 10, 1)
     }
 
-    
-   
-
-
-    on();
 }
